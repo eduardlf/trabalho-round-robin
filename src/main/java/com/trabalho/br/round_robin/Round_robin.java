@@ -27,7 +27,7 @@ public class Round_robin {
     /**
      * Defina como true para usar seed aleatória.
      */
-    private static final boolean USAR_SEED_ALEATORIA = false;
+    private static final boolean USAR_SEED_ALEATORIA = true;
 
     private static final int TEMPO_MIN_CPU = 5;
     private static final int TEMPO_MAX_CPU = 20;

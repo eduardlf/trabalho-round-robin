@@ -27,7 +27,7 @@ O objetivo do simulador é representar de forma simplificada o funcionamento de 
 * Utilização da CPU;
 * Métricas de desempenho.
 
-A implementação segue a orientação do trabalho, utilizando uma abordagem predominantemente procedural, concentrando toda a lógica em uma única classe principal (`Main.java`) e utilizando apenas estruturas simples e `record` para representar o PCB (Process Control Block) e eventos de I/O.
+A implementação segue a orientação do trabalho, utilizando uma abordagem predominantemente procedural, concentrando toda a lógica em uma única classe principal (`Round_robin.java`) e utilizando apenas estruturas simples e `record` para representar o PCB (Process Control Block) e eventos de I/O.
 
 ---
 
@@ -223,7 +223,7 @@ private static final boolean USAR_SEED_ALEATORIA = true;
 ├── docker-compose.yml
 ├── README.md
 └── src
-    └── Main.java
+    └── Round_robin.java
 ```
 
 ---
@@ -250,9 +250,12 @@ Exemplo:
 
 ```yaml
 services:
-  escalonador:
+  app:
     build: .
-    container_name: escalonador-round-robin
+    container_name: java-app
+    working_dir: /app
+    volumes:
+      - .:/app
     stdin_open: true
     tty: true
 ```
@@ -264,38 +267,32 @@ services:
 Construir a imagem:
 
 ```bash
-docker compose build
+docker compose up -d --build
 ```
 
 Executar:
 
 ```bash
-docker compose up
+docker compose exec app mvn -q clean compile exec:java -Dexec.mainClass=com.trabalho.br.round_robin.Round_robin
 ```
 
-Ou em um único comando:
-
+Tambem é possivel só criar o container usando:
 ```bash
-docker compose up --build
+docker compose up -d
 ```
 
----
-
-# Execução Sem Docker
-
-Compilar:
-
+com isso é possivel entrar no conteiner:
 ```bash
-javac src/Main.java -d out
+docker compose exec app bash
 ```
 
-Executar:
+Por uma questão de praticidade for criado o `executar.bat`
+que basicamente constroe e roda o fonte java dentro do docker diretamente.
 
+em um terminal:
 ```bash
-java -cp out Main
+executar.bat
 ```
-
----
 
 # Exemplo de Saída
 
