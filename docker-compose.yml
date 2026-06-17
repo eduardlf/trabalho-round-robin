@@ -1,0 +1,9 @@
+services:
+  app:
+    build: .
+    container_name: java-app
+    working_dir: /app
+    volumes:
+      - .:/app
+    stdin_open: true
+    tty: true
