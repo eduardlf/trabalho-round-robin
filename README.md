@@ -2,14 +2,18 @@
 
 ## Simulador de Escalonamento Round Robin com Feedback
 
-### Integrantes
+### Grupo 5
 
-* Nome do Aluno 1
-* Nome do Aluno 2
-* Nome do Aluno 3
-* Nome do Aluno 4
-* Nome do Aluno 5
-* Nome do Aluno 6
+* CARLOS EDUARDO SEIDL
+* EDUARDO LENHARDT FELTES
+* LUCAS FREITAS JANZEN
+* RAFAEL FÜHR MARONEZ
+
+---
+
+## Linguagem Utilizada
+
+* Java
 
 ---
 
@@ -287,7 +291,7 @@ docker compose exec app bash
 ```
 
 Por uma questão de praticidade for criado o `executar.bat`
-que basicamente constroe e roda o fonte java dentro do docker diretamente.
+que basicamente constrói e roda o fonte java dentro do docker diretamente.
 
 em um terminal:
 ```bash
